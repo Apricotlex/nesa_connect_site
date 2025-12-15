@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Semua Event • Nesa Connect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-content">
+      <a href="index.html" class="brand">
+        <div class="logo">N</div>
+        <div class="brand-text">
+          <h1>Nesa Connect</h1>
+          <span>Jelajah acara seru kampus</span>
+        </div>
+      </a>
+      
+      <div class="nav-search">
+        <input type="text" placeholder="Quick search events...">
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="events.html" class="active">📅 Events</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <div class="notification-bell">
+          🔔
+          <span class="notification-badge">3</span>
+        </div>
+        <button class="theme-toggle">🌙</button>
+        <div class="chip">📍 Surabaya</div>
+        <a href="login.html" class="btn btn-outline">Masuk</a>
+        <div class="user-avatar" style="display: none;">
+          <div class="avatar">U</div>
+          <div class="user-dropdown"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- FLOATING ACTION BUTTON -->
+<a href="create.html" class="fab" title="Buat Event Baru">+</a>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+  
+  <!-- PAGE HEADER -->
+  <section class="events-page-header">
+    <div class="header-content">
+      <div class="header-text">
+        <h1>🎉 Jelajahi Event Seru</h1>
+        <p>Temukan event kampus yang sesuai dengan minatmu. Dari musik, gaming, workshop, sampai seminar!</p>
+      </div>
+      <div class="header-stats">
+        <div class="stat-box">
+          <div class="stat-number">24</div>
+          <div class="stat-label">Active Events</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">12</div>
+          <div class="stat-label">This Week</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">3.2K</div>
+          <div class="stat-label">Participants</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANCED SEARCH & FILTER -->
+  <section class="advanced-filter-section">
+    <div class="filter-container">
+      
+      <!-- SEARCH BAR -->
+      <div class="search-wrapper">
+        <input type="text" class="search-input-large" placeholder="🔍 Cari event berdasarkan nama, lokasi, atau kategori...">
+        <button class="btn btn-primary search-btn-large">Cari</button>
+      </div>
+
+      <!-- FILTER CONTROLS -->
+      <div class="filter-controls">
+        <button class="filter-toggle-btn" onclick="toggleFilters()">
+          <span>⚙️ Filter & Sorting</span>
+          <span class="toggle-icon">▼</span>
+        </button>
+        <div class="active-filters">
+          <span class="filter-count">3 filters active</span>
+          <button class="btn-clear-filters" onclick="clearFilters()">Clear All</button>
+        </div>
+      </div>
+
+      <!-- FILTER PANEL (Collapsible) -->
+      <div class="filter-panel" id="filterPanel">
+        <div class="filter-grid">
+          
+          <!-- CATEGORY FILTER -->
+          <div class="filter-group">
+            <label class="filter-label">📂 Kategori</label>
+            <div class="filter-options">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="all" checked>
+                <span>Semua</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="music">
+                <span>🎵 Music</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="gaming">
+                <span>🎮 Gaming</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="food">
+                <span>🍔 Food</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="sports">
+                <span>🏆 Sports</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="workshop">
+                <span>🎨 Workshop</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="seminar">
+                <span>💼 Seminar</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PRICE FILTER -->
+          <div class="filter-group">
+            <label class="filter-label">💰 Harga</label>
+            <div class="filter-options">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="free">
+                <span>Gratis</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="paid">
+                <span>Berbayar</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="under50k">
+                <span>< Rp 50.000</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="under100k">
+                <span>< Rp 100.000</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- DATE FILTER -->
+          <div class="filter-group">
+            <label class="filter-label">📅 Waktu</label>
+            <div class="filter-options">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="date" value="today">
+                <span>Hari Ini</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="date" value="tomorrow">
+                <span>Besok</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="date" value="this-week">
+                <span>Minggu Ini</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="date" value="this-month">
+                <span>Bulan Ini</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- LOCATION FILTER -->
+          <div class="filter-group">
+            <label class="filter-label">📍 Lokasi</label>
+            <div class="filter-options">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="location" value="online">
+                <span>Online</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="location" value="offline">
+                <span>Offline</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="location" value="hybrid">
+                <span>Hybrid</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SORT OPTIONS -->
+        <div class="sort-section">
+          <label class="filter-label">🔢 Urutkan</label>
+          <div class="sort-buttons">
+            <button class="sort-btn active" data-sort="latest">Terbaru</button>
+            <button class="sort-btn" data-sort="popular">Terpopuler</button>
+            <button class="sort-btn" data-sort="price-low">Harga Terendah</button>
+            <button class="sort-btn" data-sort="price-high">Harga Tertinggi</button>
+            <button class="sort-btn" data-sort="date-nearest">Terdekat</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VIEW MODE TOGGLE -->
+  <section class="view-mode-section">
+    <div class="view-controls">
+      <div class="results-count">
+        <strong>24 events</strong> ditemukan
+      </div>
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid" title="Grid View">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+          </svg>
+        </button>
+        <button class="view-btn" data-view="list" title="List View">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS GRID -->
+  <section class="events-section">
+    <div class="events-grid" id="eventsGrid">
+      
+      <!-- EVENT CARD 1 -->
+      <div class="event-card" data-category="sports" data-price="free">
+        <button class="wishlist-btn" data-event-id="event-1">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #3B82F6, #1E40AF);">
+          🎳
+          <span class="event-badge">SPORTS</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 24 Sep 2025</span>
+            <span>📍 Bowling Center</span>
+            <span>👁️ 234 views</span>
+          </div>
+          <h3>Turnamen Bowling Antar Fakultas</h3>
+          <p>Kompetisi santai antar fakultas. Bawa timmu dan rebut hadiah menarik!</p>
+          <div class="event-footer">
+            <span class="event-price">GRATIS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 2 -->
+      <div class="event-card" data-category="food" data-price="free">
+        <button class="wishlist-btn" data-event-id="event-2">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">
+          🍔
+          <span class="hot-badge">🔥 HOT</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 25 Sep 2025</span>
+            <span>📍 Lapangan Tengah</span>
+            <span>👁️ 567 views</span>
+          </div>
+          <h3>Food Bazaar: Street Eats</h3>
+          <p>Aneka jajanan kampus favoritmu — ada lalapan, bakso, dan jajanan viral.</p>
+          <div class="event-footer">
+            <span class="event-price">GRATIS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 3 -->
+      <div class="event-card" data-category="gaming" data-price="paid">
+        <button class="wishlist-btn" data-event-id="event-3">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #10B981, #06B6D4);">
+          🎮
+          <span class="event-badge">GAMING</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 25 Sep 2025</span>
+            <span>📍 Ruang Kom</span>
+            <span>👁️ 892 views</span>
+          </div>
+          <h3>LAN Party • Turnamen PS</h3>
+          <p>Bawa stikmu, kumpulin squad, dan rebut juara kampus.</p>
+          <div class="event-footer">
+            <span class="event-price">Rp 50K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 4 -->
+      <div class="event-card" data-category="music" data-price="free">
+        <button class="wishlist-btn" data-event-id="event-4">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #EC4899, #8B5CF6);">
+          🎵
+          <span class="event-badge">MUSIC</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 20 Sep 2025</span>
+            <span>📍 Graha Nature Park</span>
+            <span>👁️ 1.2k views</span>
+          </div>
+          <h3>Opening Night • Live Band</h3>
+          <p>Pembukaan resmi dengan penampilan band lokal dan sambutan rektor.</p>
+          <div class="event-footer">
+            <span class="event-price">GRATIS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 5 -->
+      <div class="event-card" data-category="workshop" data-price="paid">
+        <button class="wishlist-btn" data-event-id="event-5">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #6366F1, #A855F7);">
+          🎨
+          <span class="hot-badge">🔥 HOT</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 21 Sep 2025</span>
+            <span>📍 Lab Multimedia</span>
+            <span>👁️ 678 views</span>
+          </div>
+          <h3>Workshop Content Creator</h3>
+          <p>Belajar bikin konten viral dan tips monetisasi dari content creator profesional.</p>
+          <div class="event-footer">
+            <span class="event-price">Rp 75K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 6 -->
+      <div class="event-card" data-category="seminar" data-price="paid">
+        <button class="wishlist-btn" data-event-id="event-6">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #F97316, #FB923C);">
+          💼
+          <span class="event-badge">SEMINAR</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 22 Sep 2025</span>
+            <span>📍 Auditorium</span>
+            <span>👁️ 445 views</span>
+          </div>
+          <h3>Startup Talk: From Idea to IPO</h3>
+          <p>Panel discussion bersama founder startup unicorn Indonesia.</p>
+          <div class="event-footer">
+            <span class="event-price">Rp 100K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 7 -->
+      <div class="event-card" data-category="sports" data-price="free">
+        <button class="wishlist-btn" data-event-id="event-7">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #14B8A6, #0D9488);">
+          ⚽
+          <span class="event-badge">SPORTS</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 26 Sep 2025</span>
+            <span>📍 Lapangan Futsal</span>
+            <span>👁️ 521 views</span>
+          </div>
+          <h3>Futsal Cup 2025</h3>
+          <p>Turnamen futsal antar jurusan. Daftar sekarang dan tunjukkan skill timmu!</p>
+          <div class="event-footer">
+            <span class="event-price">GRATIS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 8 -->
+      <div class="event-card" data-category="music" data-price="paid">
+        <button class="wishlist-btn" data-event-id="event-8">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #F43F5E, #BE123C);">
+          🎤
+          <span class="hot-badge">🔥 HOT</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 27 Sep 2025</span>
+            <span>📍 Auditorium UNESA</span>
+            <span>👁️ 1.5k views</span>
+          </div>
+          <h3>Acoustic Night: Indie Session</h3>
+          <p>Malam penuh musik indie dan akustik. Special guest: band terkenal dari Jakarta!</p>
+          <div class="event-footer">
+            <span class="event-price">Rp 125K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT CARD 9 -->
+      <div class="event-card" data-category="workshop" data-price="paid">
+        <button class="wishlist-btn" data-event-id="event-9">🤍</button>
+        <div class="event-image" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+          💻
+          <span class="event-badge">WORKSHOP</span>
+        </div>
+        <div class="event-content">
+          <div class="event-meta">
+            <span>📅 28 Sep 2025</span>
+            <span>📍 Lab Komputer</span>
+            <span>👁️ 389 views</span>
+          </div>
+          <h3>Web Development Bootcamp</h3>
+          <p>Belajar membuat website modern dari nol. Cocok untuk pemula!</p>
+          <div class="event-footer">
+            <span class="event-price">Rp 150K</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LOAD MORE -->
+    <div class="load-more-section">
+      <button class="btn btn-outline btn-large load-more-btn">
+        <span>Load More Events</span>
+        <span style="margin-left: 8px;">↓</span>
+      </button>
+      <p class="load-more-text">Showing 9 of 24 events</p>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-content">
+      <h2>🎪 Punya Event Keren?</h2>
+      <p>Publikasikan event kamu dan jangkau ribuan mahasiswa di seluruh kampus!</p>
+      <a href="create.html" class="btn btn-white btn-large">Buat Event Sekarang</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <strong>Nesa Connect</strong>
+        <div>© 2025 • Dibuat dengan semangat kampus</div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Tentang Kami</a>
+        <a href="#">FAQ</a>
+        <a href="#">Kontak</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/role-based-system.js"></script>
+<script src="js/events-page.js"></script>
+</body>
+</html>

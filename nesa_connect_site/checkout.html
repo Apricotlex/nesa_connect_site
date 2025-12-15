@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Checkout • Nesa Connect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ENHANCED NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-content">
+      <a href="index.html" class="brand">
+        <div class="logo">N</div>
+        <div class="brand-text">
+          <h1>Nesa Connect</h1>
+          <span>Jelajah acara seru kampus</span>
+        </div>
+      </a>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle">🌙</button>
+        <div class="chip">📍 Surabaya</div>
+        <a href="detail.html" class="btn btn-outline">← Kembali</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- CHECKOUT CONTAINER -->
+<div class="container">
+  <div class="checkout-container">
+    
+    <!-- PROGRESS INDICATOR -->
+    <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 32px;">
+      <div style="flex: 1; max-width: 150px; text-align: center;">
+        <div style="width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-weight: 700;">1</div>
+        <div style="font-size: 12px; color: var(--primary); font-weight: 600;">Detail Peserta</div>
+      </div>
+      <div style="flex: 1; max-width: 150px; text-align: center;">
+        <div style="width: 40px; height: 40px; background: var(--light); color: var(--text-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-weight: 700;">2</div>
+        <div style="font-size: 12px; color: var(--text-secondary);">Pembayaran</div>
+      </div>
+      <div style="flex: 1; max-width: 150px; text-align: center;">
+        <div style="width: 40px; height: 40px; background: var(--light); color: var(--text-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-weight: 700;">3</div>
+        <div style="font-size: 12px; color: var(--text-secondary);">Selesai</div>
+      </div>
+    </div>
+
+    <!-- EVENT INFO CARD -->
+    <div class="checkout-card" style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border: none;">
+      <h3 style="color: white;">Opening Night • Live Band Performance</h3>
+      <div style="display: flex; gap: 20px; margin-top: 16px; flex-wrap: wrap; font-size: 14px;">
+        <div>📅 19 September 2025</div>
+        <div>⏰ 13.00 - 20.00 WIB</div>
+        <div>📍 Auditorium UNESA</div>
+      </div>
+    </div>
+
+    <!-- FORM PESERTA -->
+    <div class="checkout-card">
+      <h3>Detail Peserta</h3>
+      <form>
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input 
+            type="text" 
+            id="name" 
+            placeholder="Sesuai KTP/Identitas" 
+            value="Lindra Pramono"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            placeholder="email@example.com" 
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="phone">No. WhatsApp</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            placeholder="08xxxxxxxxxx" 
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="institution">Asal Kampus/Institusi</label>
+          <input 
+            type="text" 
+            id="institution" 
+            placeholder="Nama kampus" 
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Catatan Tambahan (Opsional)</label>
+          <textarea 
+            id="notes" 
+            placeholder="Contoh: Alergi makanan, kebutuhan khusus, dll"
+          ></textarea>
+        </div>
+      </form>
+    </div>
+
+    <!-- RINGKASAN PEMBAYARAN -->
+    <div class="checkout-card">
+      <h3>Ringkasan Pembayaran</h3>
+      <div class="checkout-item">
+        <span>Tiket Normal (1x)</span>
+        <span>Rp 100.000</span>
+      </div>
+      <div class="checkout-item">
+        <span>Biaya Platform</span>
+        <span>Rp 2.500</span>
+      </div>
+      <div class="checkout-item">
+        <span>Diskon Member</span>
+        <span style="color: var(--success);">- Rp 5.000</span>
+      </div>
+      <div class="checkout-item" style="padding-top: 16px; border-top: 2px solid var(--border-color);">
+        <span style="font-size: 18px;">Total Pembayaran</span>
+        <span style="font-size: 20px;">Rp 97.500</span>
+      </div>
+    </div>
+
+    <!-- METODE PEMBAYARAN -->
+    <div class="checkout-card">
+      <h3>Metode Pembayaran</h3>
+      
+      <div style="display: grid; gap: 12px;">
+        <label style="display: flex; align-items: center; gap: 12px; padding: 16px; border: 2px solid var(--border-color); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: var(--bg-card);">
+          <input type="radio" name="payment" value="bank" checked style="width: auto;">
+          <div style="flex: 1;">
+            <div style="font-weight: 600; margin-bottom: 4px;">Transfer Bank</div>
+            <div style="font-size: 12px; color: var(--text-secondary);">BCA, Mandiri, BNI, BRI</div>
+          </div>
+          <div style="font-size: 24px;">🏦</div>
+        </label>
+
+        <label style="display: flex; align-items: center; gap: 12px; padding: 16px; border: 2px solid var(--border-color); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: var(--bg-card);">
+          <input type="radio" name="payment" value="ewallet" style="width: auto;">
+          <div style="flex: 1;">
+            <div style="font-weight: 600; margin-bottom: 4px;">E-Wallet</div>
+            <div style="font-size: 12px; color: var(--text-secondary);">OVO, GoPay, Dana, ShopeePay</div>
+          </div>
+          <div style="font-size: 24px;">💳</div>
+        </label>
+
+        <label style="display: flex; align-items: center; gap: 12px; padding: 16px; border: 2px solid var(--border-color); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: var(--bg-card);">
+          <input type="radio" name="payment" value="qris" style="width: auto;">
+          <div style="flex: 1;">
+            <div style="font-weight: 600; margin-bottom: 4px;">QRIS</div>
+            <div style="font-size: 12px; color: var(--text-secondary);">Scan & Pay - Semua e-wallet</div>
+          </div>
+          <div style="font-size: 24px;">📱</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- TERMS -->
+    <div style="margin-bottom: 24px;">
+      <label style="display: flex; align-items: flex-start; gap: 12px; font-size: 14px; cursor: pointer;">
+        <input type="checkbox" style="width: auto; margin-top: 4px;" required>
+        <span>Saya telah membaca dan menyetujui <a href="#" style="color: var(--primary);">Syarat & Ketentuan</a> serta <a href="#" style="color: var(--primary);">Kebijakan Privasi</a> yang berlaku.</span>
+      </label>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div style="display: flex; gap: 12px;">
+      <a href="detail.html" class="btn btn-outline btn-large" style="flex: 1;">
+        ← Kembali
+      </a>
+      <button class="btn btn-primary btn-large" style="flex: 2;">
+        Bayar Sekarang →
+      </button>
+    </div>
+
+    <!-- INFO BOX -->
+    <div style="margin-top: 24px; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 16px; border-left: 4px solid var(--success);">
+      <div style="font-size: 14px; color: var(--success); font-weight: 600; margin-bottom: 8px;">🔒 Pembayaran Aman & Terpercaya</div>
+      <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+        Data pribadi kamu dilindungi dengan enkripsi SSL. Kami tidak menyimpan informasi kartu kredit atau data pembayaran lainnya.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <strong>Nesa Connect</strong>
+        <div>© 2025 • Dibuat dengan semangat kampus</div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Tentang Kami</a>
+        <a href="#">FAQ</a>
+        <a href="#">Kontak</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/role-based-system.js"></script>
+</body>
+</html>
